@@ -279,6 +279,10 @@ def add_directions(loop: list[Pipe]):
         cntr += 1
 
 
+# Implementation has a mistake; certain inner squares are ignored if they are surrounded by corners & the loop
+# is going in the 'wrong' direction, as corners should technically have two inner / outer directions instead of one.
+# However, I don't feel like changing the entire implementation of this at the moment, so be warned that the result
+# may be inaccurate.
 def main():
     sys.setrecursionlimit(20000)
     pipes = parse_input("Inputs/Day10.txt")
