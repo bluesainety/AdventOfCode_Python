@@ -1,5 +1,5 @@
 /.idea/*
-../Inputs/*
+/*/Inputs/*
 
 # Created by .ignore support plugin (hsz.mobi)
 ### Python template
@@ -186,3 +186,4 @@ fabric.properties
 
 # idea folder, uncomment if you don't need it
 # .idea
+
