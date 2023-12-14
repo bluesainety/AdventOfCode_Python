@@ -1,5 +1,4 @@
 # file_handler.py>
-from typing import Callable, Any
 
 import numpy as np
 
@@ -22,7 +21,7 @@ def readLinesFromFile(file_path, split_at = None, remove_empty = False, convert_
     return parsedLines
 
 
-def readFileAsMatrix(file_path, func: Callable[[], Any] = None) -> Any:
+def readFileAsMatrix(file_path, numpy = False):
     parsedLines = []
 
     with open(file_path) as f:
@@ -33,11 +32,6 @@ def readFileAsMatrix(file_path, func: Callable[[], Any] = None) -> Any:
     matrix = []
 
     for line in parsedLines:
-        output = []
+        matrix.append(np.array([char for char in line]) if numpy else [char for char in line])
 
-        for char in line:
-            output.append(char) if func is None else output.append(func(char))
-
-        matrix.append(output)
-
-    return matrix
+    return np.array(matrix) if numpy else matrix
